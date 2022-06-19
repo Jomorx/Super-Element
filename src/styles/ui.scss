@@ -1,0 +1,25 @@
+//修改组件内部样式
+//1.类名尽量不和其他组件类名重复
+//2.先在浏览器调试
+//3.把调试的类名放在类名里面
+//4.App.vue引入这个文件
+//5.在组件内需要修改样式的元素的父元素加上这个类名 
+.m--choose-icon-dialog-body-height {
+    .el-dialog__body {
+        height: 50vh;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}
+
+.list-tabs__item {
+
+    .el-tabs__nav {
+        width: 100%;
+        display: flex;
+    }
+    .el-tabs__item{
+        flex: 1;
+        text-align: center;
+    }
+}
