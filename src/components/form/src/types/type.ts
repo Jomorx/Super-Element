@@ -1,5 +1,6 @@
 // 可配置表单
 
+import { FormInstance } from "element-plus";
 import { CSSProperties } from "vue";
 import { RuleItem } from "./rule";
 
@@ -25,7 +26,8 @@ export interface FormOptions {
     | "time-picker"
     | "time-select"
     | "transfer"
-    | "upload";
+    | "upload"
+    | "editor";
   //表单项的值
   value?: any;
   //表单label
@@ -46,4 +48,27 @@ export interface FormOptions {
   };
   //select 中的options等
   children?: FormOptions[];
+  //处理上传组件属性和方法
+  uploadAttrs?: {
+    action: string;
+    header?: string;
+    method?: "post" | "put" | "patch";
+    name?: string;
+    data?: any;
+    multiple?: boolean;
+    withCredentials?: boolean;
+    showFileList?: boolean;
+    drag?: boolean;
+    accept?: string;
+    thumbnailMode?: boolean;
+    fileList?: any[];
+    listType?: "text" | "picture" | "picture-card";
+    autoUpload?: boolean;
+    disabled?: boolean;
+    limit?: number;
+  };
+}
+export interface Scope {
+  form: FormInstance;
+  model: any;
 }

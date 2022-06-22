@@ -10,12 +10,16 @@
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
     "@types/lodash": "^4.14.182",
+    "@types/mockjs": "^1.0.6",
+    "axios": "^0.27.2",
     "element-plus": "^2.1.11",
     "lodash": "^4.17.21",
+    "mockjs": "^1.1.0",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "wangeditor": "^4.7.15"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

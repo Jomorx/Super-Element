@@ -1,28 +1,29 @@
 <template>
-    <m-form
-    ref="form" label-width="100px" :options="options" @on-change="handleChange" @before-upload="handleBeforeUpload"
-        @on-preview="handlePreview" @on-remove="handleRemove" @before-remove="beforeRemove" @on-exceed="handleExceed"
-        @on-success="handleSuccess">
-        <template #uploadArea>
-            <el-button size="default">Click to upload</el-button>
-        </template>
-        <template #uploadTip>
-            <div style="color: #ccc; font-size: 12px;">
-                jpg/png files with a size less than 500kb
-            </div>
-        </template>
-        <template #action="scope">
-            <el-button type="primary" @click="submitForm(scope)">提交</el-button>
-            <el-button @click="resetForm">重置</el-button>
-        </template>
-    </m-form>
+        <el-button
+         type="primary" @click="open">打开表单</el-button>
+        
+        <m-modal-form isScroll v-model:visible="visible" title="编辑用户" :options="options" :onChange="onChange" :onSuccess="onSuccess">
+            <template #footer="{ form }">
+                <el-button type="primary" @click="cancel(form)">取消</el-button>
+                <el-button type="primary" @click="confirm(form)">确认</el-button>
+            </template>
+            <!-- 上传文件按钮 -->
+            <template #uploadArea>
+                <el-button size="default">Click to upload</el-button>
+            </template>
+            <!-- 上传文件提示 -->
+            <template #uploadTip>
+                <div style="color: #ccc; font-size: 12px;">
+                    jpg/png files with a size less than 500kb
+                </div>
+            </template>
+        </m-modal-form>
 </template>
 
 <script setup lang='ts'>
-import { ElMessage, ElMessageBox } from 'element-plus';
-import { FormOptions, Scope } from '../../components/form/src/types/type';
-import {ref} from 'vue'
-let form = ref()
+import { ElMessage, FormInstance } from 'element-plus';
+import { ref } from 'vue'
+import { FormOptions } from '../../components/form/src/types/type';
 const options: FormOptions[] = [
     {
         type: "input",
@@ -108,7 +109,7 @@ const options: FormOptions[] = [
         rules: [{
             required: true,
             message: '爱好不能为空',
-            trigger: 'blur'
+            trigger: 'change'
         }],
         children: [{
             type: 'checkbox',
@@ -132,7 +133,7 @@ const options: FormOptions[] = [
         rules: [{
             required: true,
             message: '性别不能为空',
-            trigger: 'blur'
+            trigger: 'change'
         }],
         children: [{
             type: 'radio',
@@ -148,7 +149,8 @@ const options: FormOptions[] = [
             label: "保密",
             value: 'null'
         }]
-    }, {
+    },
+    {
         type: "upload",
         label: "上传",
         prop: "pic",
@@ -169,63 +171,47 @@ const options: FormOptions[] = [
         type: "editor",
         value: "",
         prop: "desc",
-        placeholder:"请输入描述",
+        placeholder: "请输入描述",
         label: "描述",
         rules: [
             {
-                required:true,
-                message:"描述不能为空",
-                trigger:"blur"
+                required: true,
+                message: "描述不能为空",
+                trigger: "blur"
             }
         ]
     }
 ]
-const handlePreview = (val: any) => {
-    console.log("handlePreview")
+let visible = ref<boolean>(false)
+const open = () => {
+    visible.value = true
 }
-const handleRemove = (val: any) => {
-    console.log("handleRemove")
+const onChange= (val:any)=>{
+    console.log("change",val)
 }
-const beforeRemove = (val: any) => {
-    console.log("beforeRemove")
-    return ElMessageBox.confirm(
-        `Cancel the transfert of ${val.uploadFile.name} ?`
-    ).then(
-        () => true,
-        () => false
-    )
-}
-const handleExceed = (val: any) => {
-    ElMessage.warning(
-        `The limit is 3, you selected ${val.files.length} files this time, add up to ${val.files.length + val.fileList.length
-        } totally`
-    )
-    console.log("handleExceed")
-}
-const handleSuccess = (val: any) => {
-    console.log("success")
-    console.log(val)
-}
-const handleChange = (val: any) => {
-    console.log(val)
-}
-const handleBeforeUpload = (val: any) => {
-    console.log(val)
-}
-const submitForm = (scope: Scope) => {
-    scope.form.validate((valid) => {
-        if (valid) {
-            console.log(scope.model)
-            ElMessage.success("提交成功")
 
+const onSuccess= (val:any)=>{
+    console.log("success",val)
+}
+//取消
+let cancel = (form: FormInstance) => {
+
+}
+//确认
+let confirm = (form: FormInstance) => {
+    let validate = form.validate()
+    let model = form.getFormData()
+    console.log(model)
+    validate((valid: any) => {
+        if (valid) {
+            ElMessage.success("成功")
         } else {
-            ElMessage.error("表单有误,请检查")
+            ElMessage.error("失败")
         }
     })
 }
-const resetForm = () => {
-    form.value.resetFields()
-}
+
+
 </script>
 
 <style scoped lang='scss'>

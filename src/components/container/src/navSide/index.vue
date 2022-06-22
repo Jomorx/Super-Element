@@ -69,6 +69,10 @@ const menuData: MenuItem[] = [{
     icon: 'Collection',
     name: '表单',
     index: '/form'
+},{
+    icon: 'Collection',
+    name: '弹出框表单',
+    index: '/modalForm'
 }, {
     icon: 'Document',
     name: '表格',

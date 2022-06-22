@@ -1,7 +1,5 @@
 import { defineComponent, PropType, useAttrs } from "vue";
-import { toLine } from "../../../utils";
-import { MenuItem } from "./type";
-import * as Icons from '@element-plus/icons'
+import * as Icons from "@element-plus/icons";
 import './styles/index.scss'
 export default defineComponent({
   props: {
@@ -21,31 +19,30 @@ export default defineComponent({
       default: false,
     },
     name: {
-        type: String,
-        default: "name"
+      type: String,
+      default: "name",
     },
     index: {
-        type: String,
-        default: "index"
+      type: String,
+      default: "index",
     },
     icon: {
-        type: String,
-        default: "icon"
+      type: String,
+      default: "icon",
     },
     children: {
-        type: String,
-        default: "children"
-    }
+      type: String,
+      default: "children",
+    },
   },
   setup(props, ctx) {
     //定义插槽
     const renderMenu = (data: any[]) => {
       return data.map((item: any) => {
         // item.i = `el-icon-${toLine(item[props.icon]!)}`;
-        item.i = (Icons as any) [item[props.icon]!]
-        console.log(item.i);
-        
-        let slot = { 
+        item.i = (Icons as any)[item[props.icon]!];
+
+        let slot = {
           title: () => {
             return (
               <>
@@ -63,24 +60,26 @@ export default defineComponent({
             </el-sub-menu>
           );
         }
-        return <el-menu-item index={item[props.index] }>
-            <item.i/>
+        return (
+          <el-menu-item index={item[props.index]}>
+            <item.i />
             <span>{item[props.name]}</span>
-        </el-menu-item>;
+          </el-menu-item>
+        );
       });
     };
-    let attrs= useAttrs();
+    let attrs = useAttrs();
 
     return () => {
-      return <el-menu 
-      default-active={props.defaultActive}
-      router={props.router}
-      {...attrs}
-      >
-        {
-            renderMenu(props.data)
-        }
-      </el-menu>;
+      return (
+          <el-menu class="m-infinite-menu"
+            default-active={props.defaultActive}
+            router={props.router}
+            {...attrs}
+          >
+            {renderMenu(props.data)}
+          </el-menu>
+      );
     };
   },
 });

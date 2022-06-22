@@ -63,6 +63,9 @@ let props = defineProps({
 </script>
 
 <style scoped lang='scss'>
-@import './styles/index.scss'
-
+svg {
+    margin-right: 4px;
+    width: 1em;
+    height: 1em;
+}
 </style>
