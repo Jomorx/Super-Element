@@ -1,5 +1,5 @@
 <template>
-    <m-choose-date :disabledToday="false" @startChange="startChange" @endChange="endChange" :startOptions="startOptions" :endOptions="endOptions"></m-choose-date>
+    <se-choose-date :disabledToday="false" @startChange="startChange" @endChange="endChange" :startOptions="startOptions" :endOptions="endOptions"></se-choose-date>
 </template>
 
 <script setup lang='ts'>

@@ -1,5 +1,5 @@
 <template>
-<m-choose-area @change="changeArea"></m-choose-area>
+<se-choose-area @change="changeArea"></se-choose-area>
 </template>
 
 <script setup lang='ts'>

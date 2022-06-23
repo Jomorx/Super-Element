@@ -1,6 +1,6 @@
 <template>
     <div>
-        <m-choose-city @changeCity="changeCity" @changeProvince="changeProvince"/>
+        <se-choose-city @changeCity="changeCity" @changeProvince="changeProvince"/>
     </div>
 </template>
 

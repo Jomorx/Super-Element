@@ -3,6 +3,6 @@ import table from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-table',table)
+        app.component('se-table',table)
     }
 }

@@ -13,11 +13,11 @@
     <m-notification :value="50" :max="30" :isDot="true" icon="ChatRound"></m-notification>
     </div> -->
     <div>
-        <m-notification :value="50">
+        <se-notification :value="50">
             <template #default>
-                <m-list :list="list" :actions="actions"></m-list>
+                <se-list icon="Bell" :list="list" :actions="actions"></se-list>
             </template>
-        </m-notification>
+        </se-notification>
     </div>
 </template>
 

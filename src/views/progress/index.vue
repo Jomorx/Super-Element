@@ -1,7 +1,7 @@
 <template>
 <div>
-    <m-progress :percentage="50" isAnimation/>
-    <m-progress :percentage="50" type="circle" isAnimation/>
+    <se-progress :percentage="50" isAnimation/>
+    <se-progress :percentage="50" type="circle" isAnimation/>
 
 </div>
 

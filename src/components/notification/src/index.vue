@@ -1,9 +1,9 @@
 <template>
-    <el-popover placement="bottom"  :width="300" trigger="click">
+    <el-popover popper-class="notification" placement="bottom"  :width="300" trigger="click">
     <slot name="default"></slot>
         <template #reference>
             <el-badge style="cursor:pointer" :value="value" :max="max" :is-dot="isDot">
-                <component :is="`el-icon-${toLine(icon)}`"></component>
+                <component :is="`el-icon-${toLine(icon)}`" ></component>
             </el-badge>
         </template>
 
@@ -37,4 +37,8 @@ let props = defineProps({
 </script>
 
 <style scoped lang='scss'>
+svg{
+    width: 2em;
+    height: 2em;
+}
 </style>

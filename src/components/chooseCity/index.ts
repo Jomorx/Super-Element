@@ -3,6 +3,6 @@ import chooseCity from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-choose-city',chooseCity)
+        app.component('se-choose-city',chooseCity)
     }
 }

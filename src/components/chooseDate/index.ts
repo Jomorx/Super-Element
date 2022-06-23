@@ -3,6 +3,6 @@ import chooseDate from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-choose-date',chooseDate)
+        app.component('se-choose-date',chooseDate)
     }
 }

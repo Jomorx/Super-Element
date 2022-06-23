@@ -3,6 +3,6 @@ import progress from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-progress',progress)
+        app.component('se-progress',progress)
     }
 }

@@ -2,22 +2,22 @@
     <div>
         <div className="flex">
             <div>
-                <m-trend text="营业额"></m-trend>
-                <m-trend text="销售额" type="down"></m-trend>
+                <se-trend text="营业额"></se-trend>
+                <se-trend text="销售额" type="down"></se-trend>
             </div>
             <hr>
             <div>
-                <m-trend reverseColor text="营业额"></m-trend>
-                <m-trend reverseColor text="销售额" type="down"></m-trend>
+                <se-trend reverseColor text="营业额"></se-trend>
+                <se-trend reverseColor text="销售额" type="down"></se-trend>
             </div>
             <hr>
             <div>
-                <m-trend text="营业额" upTextColor="red"  upIconColor="blue"></m-trend>
-                <m-trend text="销售额" downTextColor="blue" type="down" downIconColor="blue"></m-trend>
+                <se-trend text="营业额" upTextColor="red"  upIconColor="blue"></se-trend>
+                <se-trend text="销售额" downTextColor="blue" type="down" downIconColor="blue"></se-trend>
             </div>
             <div>
-                <m-trend text="营业额"  reverseColor upIcon="CaretTop"></m-trend>
-                <m-trend text="销售额" type="down" reverseColor downIcon="CaretBottom"></m-trend>
+                <se-trend text="营业额"  reverseColor upIcon="CaretTop"></se-trend>
+                <se-trend text="销售额" type="down" reverseColor downIcon="CaretBottom"></se-trend>
             </div>
         </div>
     </div>

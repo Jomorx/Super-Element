@@ -3,6 +3,6 @@ import chooseTime from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-choose-time',chooseTime)
+        app.component('se-choose-time',chooseTime)
     }
 }

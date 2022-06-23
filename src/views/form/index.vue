@@ -1,5 +1,5 @@
 <template>
-    <m-form
+    <se-form
     ref="form" label-width="100px" :options="options" @on-change="handleChange" @before-upload="handleBeforeUpload"
         @on-preview="handlePreview" @on-remove="handleRemove" @before-remove="beforeRemove" @on-exceed="handleExceed"
         @on-success="handleSuccess">
@@ -15,7 +15,7 @@
             <el-button type="primary" @click="submitForm(scope)">提交</el-button>
             <el-button @click="resetForm">重置</el-button>
         </template>
-    </m-form>
+    </se-form>
 </template>
 
 <script setup lang='ts'>

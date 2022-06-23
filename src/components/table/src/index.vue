@@ -1,5 +1,6 @@
 <template>
-    <el-table :data="tableData" v-loading="isLoading" :element-loading-text="elementLoadingText"
+    <el-table
+    v-bind="$attrs" :data="tableData" v-loading="isLoading" :element-loading-text="elementLoadingText"
         :element-loading-spinner="elementLoadingSpinner" :element-loading-background="elementLoadingBackground"
         :element-loading-svg="elementLoadingSvg" :element-loading-svg-view-box="elementLoadingSvgViewBox"
         @rowClick="rowClick">
@@ -8,7 +9,7 @@
             <el-table-column :label="item.label" :prop="item.prop" :align="item.align" :width="item.width">
 
                 <template #default="scope">
-                <!-- 可编辑行 -->
+                    <!-- 可编辑行 -->
                     <template v-if="scope.row.rowEdit">
                         <el-input size="small" v-model="scope.row[item.prop]"></el-input>
                     </template>
@@ -19,7 +20,7 @@
                             <div style="display:flex">
                                 <el-input size="small" v-model="scope.row[item.prop]"></el-input>
                                 <div @click.stop="clickEditCell">
-                                <!-- 自定义编辑一个 -->
+                                    <!-- 自定义编辑一个 -->
                                     <slot name="editCell" :scope="scope" v-if="$slots.editCell"></slot>
                                     <!-- 不是自定义 -->
                                     <div class="icons" v-else>
@@ -35,7 +36,7 @@
                         <template v-else>
                             <slot v-if="item.slot" :name="item.slot" :scope="scope"></slot>
                             <span v-else>{{ scope.row[item.prop] }}</span>
-                            <component :is='`el-icon-${toLine(editIcon)}`' @click.stop  ="clickEdit(scope)" class="edit"
+                            <component :is='`el-icon-${toLine(editIcon)}`' @click.stop="clickEdit(scope)" class="edit"
                                 v-if="item.editable"></component>
                             <!-- <el-icon-edit @click="clickEdit(scope)" class="edit" v-if="item.editable"></el-icon-edit> -->
                         </template>
@@ -47,13 +48,23 @@
         </template>
         <el-table-column :label="actionOptions?.label" :align="actionOptions?.align" :width="actionOptions?.width">
             <template #default="scope">
-                <slot name="editRow"  v-if="scope.row.rowEdit" :scope="scope">
+                <slot name="editRow" v-if="scope.row.rowEdit" :scope="scope">
                 </slot>
                 <slot name="action" :scope="scope" v-else>
                 </slot>
             </template>
         </el-table-column>
     </el-table>
+    <div class="pagination" v-if="pagination" :style="{justifyContent:paginationAlignJustify}">
+        <el-pagination 
+        v-model:currentPage="currentPage"
+         v-model:page-size="pageSize"
+        :page-sizes="pageSizes"
+        layout="total, sizes, prev, pager, next, jumper" 
+        :total="total" 
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange" />
+    </div>
 </template>
 
 <script setup lang='ts'>
@@ -104,10 +115,38 @@ let props = defineProps({
     editRowIndex: {
         type: String,
         default: ""
+    },
+    pagination:{
+        type:Boolean,
+        default:false
+    },
+    //当前第几页
+    currentPage:{
+        type:Number,
+        default:1
+    },
+    //每页数据选项
+    pageSizes:{
+        type:Array as PropType<number[]>,
+        default:[10,20,30,40]
+    },
+    //当前一页多少条数据
+    pageSize:{
+        type:Number,
+        default:10
+    },
+    //数据总数
+    total:{
+        type:Number,
+    },
+    //分页排列方式
+    paginationAlign:{
+        type:String as PropType<'left'|'center'|'right'>,
+        default:'left'
     }
 })
 
-let emits = defineEmits(['confirm', 'cancel','update:editRowIndex'])
+let emits = defineEmits(['confirm', 'cancel', 'update:editRowIndex','sizeChange','currentChange'])
 //过滤操作选项
 let tableOptions = computed(() => props.options.filter((item) => !item.action))
 let actionOptions = computed(() => props.options.find((item) => item.action))
@@ -136,7 +175,22 @@ onMounted(() => {
         item.rowEdit = false
     })
 })
+//分页条数改变
+const handleSizeChange = (val:number)=>{
+    emits('sizeChange',val)
+}
 
+//分页页数改变
+const handleCurrentChange = (val:number)=>{
+    emits('currentChange',val)
+}
+
+let paginationAlignJustify = computed(()=>{
+   if( props.paginationAlign==='left') return 'flex-start'
+   else if (props.paginationAlign==='center') return 'center'
+    else return 'flex-end'
+})
+//点击编辑一行
 const rowClick = (row: any, column: any) => {
     //判断点击的是否是操作项内容
     if (column.label === actionOptions.value?.label) {
@@ -147,8 +201,8 @@ const rowClick = (row: any, column: any) => {
                 if (item != row) {
                     item.rowEdit = false
                 }
-                if(!row.rowEdit){
-                    emits('update:editRowIndex','')
+                if (!row.rowEdit) {
+                    emits('update:editRowIndex', '')
                 }
             })
         }
@@ -205,5 +259,11 @@ const cancel = (scope: any) => {
     .close {
         color: green;
     }
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
 }
 </style>

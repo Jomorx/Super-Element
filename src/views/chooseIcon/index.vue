@@ -1,8 +1,8 @@
 <template>
     <div>
-        <m-choose-icon title="选择图标" v-model:visible="visible">
+        <se-choose-icon title="选择图标" v-model:visible="visible">
             选择图标
-        </m-choose-icon>
+        </se-choose-icon>
     </div>
 </template>
 

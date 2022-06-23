@@ -9,8 +9,8 @@
         </el-menu-item>
     </el-menu> -->
     <el-scrollbar>
-        <m-menu :data="menuData" :collapse="collapse" :router="true" :defaultActive="route.path">
-        </m-menu>
+        <se-menu :data="menuData" :collapse="collapse" :router="true" :defaultActive="route.path">
+        </se-menu>
     </el-scrollbar>
 </template>
 

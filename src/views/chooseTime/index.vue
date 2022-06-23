@@ -1,5 +1,5 @@
 <template>
-    <m-choose-time @startChange="startChange" @endChange="endChange" :startOptions="startOptions" :endOptions="endOptions"></m-choose-time>
+    <se-choose-time @startChange="startChange" @endChange="endChange" :startOptions="startOptions" :endOptions="endOptions"></se-choose-time>
 </template>
 
 <script setup lang='ts'>

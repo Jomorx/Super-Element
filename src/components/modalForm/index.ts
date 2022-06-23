@@ -3,7 +3,7 @@ import modalForm from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-modal-form',modalForm)
+        app.component('se-modal-form',modalForm)
 
     }
 }

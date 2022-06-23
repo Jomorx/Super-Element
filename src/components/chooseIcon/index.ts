@@ -3,6 +3,6 @@ import chooseIcon from './src/index.vue'
  
 export default {
     install(app:App){
-        app.component('m-choose-icon',chooseIcon)
+        app.component('se-choose-icon',chooseIcon)
     }
 }

@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "@fullcalendar/core": "^5.11.0",
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/interaction": "^5.11.0",
     "@types/lodash": "^4.14.182",
     "@types/mockjs": "^1.0.6",
     "axios": "^0.27.2",

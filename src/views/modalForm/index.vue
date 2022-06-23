@@ -2,7 +2,7 @@
         <el-button
          type="primary" @click="open">打开表单</el-button>
         
-        <m-modal-form isScroll v-model:visible="visible" title="编辑用户" :options="options" :onChange="onChange" :onSuccess="onSuccess">
+        <se-modal-form isScroll v-model:visible="visible" title="编辑用户" :options="options" :onChange="onChange" :onSuccess="onSuccess">
             <template #footer="{ form }">
                 <el-button type="primary" @click="cancel(form)">取消</el-button>
                 <el-button type="primary" @click="confirm(form)">确认</el-button>
@@ -17,7 +17,7 @@
                     jpg/png files with a size less than 500kb
                 </div>
             </template>
-        </m-modal-form>
+        </se-modal-form>
 </template>
 
 <script setup lang='ts'>
