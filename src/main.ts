@@ -14,6 +14,7 @@ for(let i in Icons){
     app.component(`icon-${toLine(i)}`,(Icons as any)[i])
     app.component(`el-icon-${toLine(i)}`,(Icons as any)[i])
 }
-app.use(router).use(ElementPlus)
+app.use(router)
+.use(ElementPlus)
 app.use(mUI)
 app.mount('#app')

@@ -10,7 +10,7 @@
 
                 <template #default="scope">
                     <!-- 可编辑行 -->
-                    <template v-if="scope.row.rowEdit">
+                    <template v-if="scope.row.isEditRow">
                         <el-input size="small" v-model="scope.row[item.prop]"></el-input>
                     </template>
                     <!-- 不可编辑行 -->
@@ -195,13 +195,13 @@ const rowClick = (row: any, column: any) => {
     //判断点击的是否是操作项内容
     if (column.label === actionOptions.value?.label) {
         if (props.isEditRow && cloneEditRowIndex.value === props.editRowIndex) {
-            row.rowEdit = !row.rowEdit
+            row.isEditRow = !row.isEditRow
             //重置掐他数据
             tableData.value.map(item => {
                 if (item != row) {
-                    item.rowEdit = false
+                    item.isEditRow = false
                 }
-                if (!row.rowEdit) {
+                if (!row.isEditRow) {
                     emits('update:editRowIndex', '')
                 }
             })

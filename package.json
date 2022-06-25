@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "build": " vite build",
+    "preview": "vite preview",
+    "build:components": "node ./command/build.js",
+    "lib": "npm run build:components && cp package.json"
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
@@ -16,6 +18,7 @@
     "@types/mockjs": "^1.0.6",
     "axios": "^0.27.2",
     "element-plus": "^2.1.11",
+    "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "sass": "^1.51.0",
