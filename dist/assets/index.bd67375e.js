@@ -1,0 +1,1 @@
+import{d as a,c as s,b as c,r,o as t}from"./index.61a8ecc5.js";const h=a({setup(_){let o=e=>{console.log(e)};return(e,l)=>{const n=r("se-choose-area");return t(),s(n,{onChange:c(o)},null,8,["onChange"])}}});export{h as default};

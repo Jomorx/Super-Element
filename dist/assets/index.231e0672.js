@@ -1,0 +1,1 @@
+import{d as c,c as r,r as p,o as _}from"./index.61a8ecc5.js";const m=c({setup(h){const e=o=>{console.log("startChange",o)},n=o=>{console.log("endChange",o)},t={},s={};return(o,g)=>{const a=p("se-choose-time");return _(),r(a,{onStartChange:e,onEndChange:n,startOptions:t,endOptions:s})}}});export{m as default};

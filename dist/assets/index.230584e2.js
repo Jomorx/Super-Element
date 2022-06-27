@@ -1,0 +1,1 @@
+import{_ as r,e as o,a as n,r as s,o as t}from"./index.61a8ecc5.js";const c={};function a(i,_){const e=s("se-progress");return t(),o("div",null,[n(e,{percentage:50,isAnimation:""}),n(e,{percentage:50,type:"circle",isAnimation:""})])}var l=r(c,[["render",a]]);export{l as default};

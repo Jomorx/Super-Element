@@ -1,0 +1,1 @@
+import{d as t,e as s,a,r as u,o as r}from"./index.61a8ecc5.js";const p=t({setup(l){const o=e=>{console.log("\u57CE\u5E02\u6539\u53D8\u4E86",e)},n=e=>{console.log("\u7701\u4EFD\u6539\u53D8\u4E86",e)};return(e,i)=>{const c=u("se-choose-city");return r(),s("div",null,[a(c,{onChangeCity:o,onChangeProvince:n})])}}});export{p as default};

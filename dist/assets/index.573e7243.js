@@ -1,0 +1,1 @@
+import{d as c,c as r,r as d,o as p}from"./index.61a8ecc5.js";const g=c({setup(_){const e=o=>{console.log(o)},n=o=>{console.log(o.startDate,o.endDate)},t={},s={};return(o,l)=>{const a=d("se-choose-date");return p(),r(a,{disabledToday:!1,onStartChange:e,onEndChange:n,startOptions:t,endOptions:s})}}});export{g as default};
