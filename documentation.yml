@@ -18,9 +18,9 @@ ano-dir/** linguist-documentation
 - ^[Ee]xamples/
 - ^[Dd]emos?/
 - (^|/)inst/doc/
-- (^|/)lib/
-- (^|/)command/
-- (^|/)dist/
+- ^lib?/
+- ^command?/
+- ^dist?/
 
 ## Documentation files ##
 
