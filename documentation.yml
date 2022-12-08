@@ -6,6 +6,7 @@
 #
 # Please add additional test coverage to
 # `test/test_blob.rb#test_documentation` if you make any changes.
+ano-dir/** linguist-documentation
 
 ## Documentation directories ##
 

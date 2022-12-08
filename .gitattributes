@@ -2,4 +2,3 @@
 *.js linguist-language=javascript
 *.css linguist-language=css
 *.html linguist-language=html
-ano-dir/** linguist-documentation
