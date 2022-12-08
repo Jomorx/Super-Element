@@ -1,0 +1,1 @@
+import{d as a,r as s,o as c,c as r,b as t}from"./index.ffb5fb24.js";const h=a({setup(_){let o=e=>{console.log(e)};return(e,l)=>{const n=s("se-choose-area");return c(),r(n,{onChange:t(o)},null,8,["onChange"])}}});export{h as default};

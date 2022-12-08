@@ -15,7 +15,7 @@ import table from "./table";
 import calendar from "./calendar";
 import "./styles/base.scss";
 import "./styles/ui.scss";
-
+import * as Icons from '@element-plus/icons'
 
 const components = [
   chooseArea,
@@ -33,9 +33,12 @@ const components = [
   table,
   calendar,
 ];
-
+import {toLine} from './utils'
 export default {
   install(app: App) {
+    for(let i in Icons){
+      app.component(`el-icon-${toLine(i)}`,(Icons as any)[i])
+  }
     components.map((item) => {
       app.use(item);
     });

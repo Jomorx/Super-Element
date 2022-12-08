@@ -1,0 +1,1 @@
+import{d as c,r,o as d,c as p}from"./index.ffb5fb24.js";const g=c({setup(_){const e=o=>{console.log(o)},n=o=>{console.log(o.startDate,o.endDate)},t={},s={};return(o,l)=>{const a=r("se-choose-date");return d(),p(a,{disabledToday:!1,onStartChange:e,onEndChange:n,startOptions:t,endOptions:s})}}});export{g as default};

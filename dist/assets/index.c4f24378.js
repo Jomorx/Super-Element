@@ -1,0 +1,1 @@
+import{_ as r,r as o,o as s,e as t,a as n}from"./index.ffb5fb24.js";const c={};function a(i,_){const e=o("se-progress");return s(),t("div",null,[n(e,{percentage:50,isAnimation:""}),n(e,{percentage:50,type:"circle",isAnimation:""})])}var l=r(c,[["render",a]]);export{l as default};

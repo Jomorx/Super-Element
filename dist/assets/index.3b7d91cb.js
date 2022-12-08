@@ -1,0 +1,1 @@
+import{d as c,r,o as p,c as _}from"./index.ffb5fb24.js";const m=c({setup(h){const e=o=>{console.log("startChange",o)},n=o=>{console.log("endChange",o)},t={},s={};return(o,g)=>{const a=r("se-choose-time");return p(),_(a,{onStartChange:e,onEndChange:n,startOptions:t,endOptions:s})}}});export{m as default};

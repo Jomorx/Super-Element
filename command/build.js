@@ -38,8 +38,8 @@ const buildAll = async () => {
             rollupOptions,
             lib: {
                 entry: path.resolve(entryDir, 'index.ts'),
-                name: 'super-element-components',
-                fileName: 'super-element-components',
+                name: 'index',
+                fileName: 'index',
                 formats: ['es', 'umd']
             },
             outDir

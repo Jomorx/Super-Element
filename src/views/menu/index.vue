@@ -4,8 +4,8 @@
             <se-menu :data="data1" defaultActive="2" name="a" index="b" icon="c" children="d" :router="false"> </se-menu>
         </div>
         <div style="width:200px;margin-left: 200px;">
-            <m-infinite-menu :data="data2" defaultActive="2" name="a" index="b" icon="c" children="d"
-                active-text-color="red"></m-infinite-menu>
+            <se-infinite-menu :data="data2" defaultActive="2" name="a" index="b" icon="c" children="d"
+                active-text-color="red"></se-infinite-menu>
         </div>
     </div>
 </template>
