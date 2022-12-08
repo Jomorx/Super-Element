@@ -17,6 +17,9 @@
 - ^[Ee]xamples/
 - ^[Dd]emos?/
 - (^|/)inst/doc/
+- (^|/)lib/
+- (^|/)command/
+- (^|/)dist/
 
 ## Documentation files ##
 
@@ -29,6 +32,5 @@
 - (^|/)[Ll]icen[cs]e(\.|$)
 - (^|/)README(\.|$)
 - (^|/)[Rr]eadme(\.|$)
-
 # Samples folders
 - ^[Ss]amples?/
